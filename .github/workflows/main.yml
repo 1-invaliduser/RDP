@@ -13,17 +13,19 @@ jobs:
  
  
     steps:
-     - name: Update
-     
-       run: ngrok update
+
            
      - name: Download
  
-       run: Invoke-WebRequest https://bin.equinox.io/c/4VmDzA7iaHb/ngrok-stable-windows-amd64.zip -OutFile ngrok.zip
+       run: Invoke-WebRequest https://bin.equinox.io/c/4VmDzA7iaHb/ngrok-stable-windows-amd64.zip -OutFile ngrok.zip 
  
      - name: Extract
  
        run: Expand-Archive ngrok.zip
+
+     - name: Update
+     
+       run: ngrok update
  
      - name: Auth
  
@@ -31,7 +33,7 @@ jobs:
  
        env:
  
-        NGROK_AUTH_TOKEN: ${{ secrets.NGROK_AUTH_TOKEN }}
+        NGROK_AUTH_TOKEN: ${{ secrets.NGROK_AUTH_TOKEN }
  
      - name: Enable TS
  
